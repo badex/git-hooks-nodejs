@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/badex/git-hooks-nodejs#readme",
   "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
     "eslint": "^8.21.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0",
@@ -31,6 +32,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "post-commit": "npm run success-message"
     }
   },
@@ -42,6 +44,18 @@
   },
   "jest": {
     "verbose": true,
-    "testMatch": ["<rootDir>/tests/*.test.js"]
+    "testMatch": [
+      "<rootDir>/tests/*.test.js"
+    ]
+  },
+  "commitlint": {
+    "rules": {
+      "references-empty": [2, "never"]
+    },
+    "parserPreset": {
+      "parserOpts": {
+        "issuePrefixes": ["ISSUE-"]
+      }
+    }
   }
 }
