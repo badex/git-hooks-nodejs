@@ -40,6 +40,6 @@
   },
   "jest": {
     "verbose": true,
-    "testMatch": ["./tests/*.test.js"]
+    "testMatch": ["<rootDir>/tests/*.test.js"]
   }
 }
